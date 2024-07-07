@@ -8,40 +8,40 @@ class CategoryController {
         this.#service = new CategoryService();
     }
 
-    async create(req, res, next){
+    async create (req, res, next) {
         try {
-            const result = await this.#service.create({});
-            return res.json(result)
+            const result = await this.#service.create(req.body);
+            return res.json(result);
         } catch (error) {
-            next(error)
+            next(error);
         }
     }
-    async delete(req, res, next){
+    async delete (req, res, next) {
         try {
-            const result = await this.#service.delete({});
-            return res.json(result)
+            const result = await this.#service.delete(req.params.id);
+            return res.json(result);
         } catch (error) {
-            next(error)
+            next(error);
         }
     }
-    async findAll(req, res, next){
+    async findAll (req, res, next) {
         try {
             const result = await this.#service.findAll();
-            return res.json(result)
+            return res.json(result);
         } catch (error) {
-            next(error)
+            next(error);
         }
     }
-    async update(req, res, next){
+    async update (req, res, next) {
         try {
             const result = await this.#service.update('', {});
-            return res.json(result)
+            return res.json(result);
         } catch (error) {
-            next(error)
+            next(error);
         }
     }
 }
 
 module.exports = {
     categoryController: new CategoryController()
-}
+};
